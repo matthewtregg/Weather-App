@@ -7,7 +7,7 @@ const App = () => {
   return ( // TODO: Replace this with your application code
     <div className="App">
       <header className="App-header">
-        <ExampleComp />
+        <WeatherAppBackground />
       </header>
     </div>
   );
