@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import "./LocationInputForm.css";
 
-const LocationInputForm = ({setLocation}) => {
+const LocationInputForm = ({setLocation, setMetricTemp}) => {
 
   const [value, setValue]=useState('');
   const handleValue = (event) => {
@@ -14,6 +14,10 @@ const LocationInputForm = ({setLocation}) => {
     else throw new Error('invalid location');
   }
   
+  const tempToggle = metricTemp ?
+  <button onClick={() => {setMetricTemp(false)}}>  Kelvin </button >:
+  <button onClick ={() =>{setMetricTemp(true)}}> Celsius </button>;  
+
   return ( 
     // Input form for changing the location
     // add in temperature toggle and finish styling
@@ -23,6 +27,7 @@ const LocationInputForm = ({setLocation}) => {
       Enter Your Location:
       <input type="text" value={value} onChange={handleValue} />
     </label>
+     {tempToggle}
   </form>
   </>
   );
