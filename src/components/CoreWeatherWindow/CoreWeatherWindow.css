@@ -1,0 +1,10 @@
+.weatherInfo {
+  padding: 5%;
+  padding-top: 10%;
+  padding-bottom: 7.5%;
+}
+
+.refreshInfo {
+  text-align: right;
+  font-family: 10px;
+}

@@ -1,0 +1,14 @@
+.MainWeatherAppWindow {
+  background-color: #664575;
+}
+
+.WeatherAppBackground {
+  width: 50%;
+}
+
+.MainWindow {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 100%;
+}
