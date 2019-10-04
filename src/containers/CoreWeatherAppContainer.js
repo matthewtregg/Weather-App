@@ -17,6 +17,7 @@ const [metricTemp, setMetricTemp] = useState(true);
     if (locationHistory.length < 5 && savedLocation.length === 0 ) {
       setLocationHistory (history => [...history,data]) 
     }
+
     // if saved location already exists
     else if (savedLocation.length > 0) {
       const otherLocations = locationHistory.filter(history => history.name !== data.name)
