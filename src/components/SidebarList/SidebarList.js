@@ -3,11 +3,15 @@ import "./SidebarList.css";
 
 // - two things testing 
 // and Css styling
-const SidebarList = () => {
-
+const SidebarList = ({locationHistory,setLocation}) => {
+  const locationHistories = locationHistory ? locationHistory.map((history) => {
+   return <div key={history.name} onClick={()=>{setLocation(history.name)}}>{history.name}</div>
+  }): null
+  
   return ( 
     <div className="Sidebar">
-      
+      <p> Weather History </p>
+       {locationHistories} 
     </div>
   );
 }
