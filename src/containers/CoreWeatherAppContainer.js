@@ -8,15 +8,7 @@ const { setLocationHistory, setLocation, location, locationHistory} = useContext
 const [refresh, setRefresh] = useState(0); 
 const [secs, setSecs] = useState(0);
 
-  useEffect(() => {
-    const seconds = setTimeout(function () {
-      setSecs(secs => secs + 1);
-    }, 1000);
-    if (secs >= 60) {
-      clearInterval(seconds);
-      setRefresh(refresh => refresh + 1);
-    }
-  }, [secs])
+
 
   const saveLocationHistory = (data) => {
     // check if weather information already exists
@@ -33,12 +25,21 @@ const [secs, setSecs] = useState(0);
       
   }
 
+  useEffect(() => {
+    console.log(secs);
+    const seconds = setTimeout(function () {
+      setSecs(secs => secs + 1);
+    }, 1000);
+    if (secs >= 60) {
+      clearInterval(seconds);
+      setRefresh(refresh => refresh + 1);
+    }
+  }, [secs])
 
 
   useEffect(() => {
 
     // check location history for metricTemp
-   
     fetch(`https://api.openweathermap.org/data/2.5/weather?q=${location},uk&units=metric&appid=46f3fbf526892ce35ec9013d2368d07c`) 
       .then((res) => res.json())
       .then((data) => {
@@ -46,7 +47,7 @@ const [secs, setSecs] = useState(0);
         setSecs(0);
       });
 
-  }, [refresh, location, metricTemp])
+  }, [refresh, location])
 
 
 
@@ -54,9 +55,9 @@ const [secs, setSecs] = useState(0);
 
   return ( // TODO: Replace this with your application code
     <div className="App">
-      <header className="App-header">
+      {/* <header className="App-header">
         <ExampleComp />
-      </header>
+      </header> */}
     </div>
   );
 }

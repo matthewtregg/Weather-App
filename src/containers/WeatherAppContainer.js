@@ -15,5 +15,3 @@ const [location, setLocation] = useState('London');
 }
 
 export default WeatherAppContainer;
-
-//e0b01f
