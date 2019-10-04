@@ -7,7 +7,7 @@ const SidebarLocation = ({history}) => {
 
   return ( 
     <div className="SidebarLocation">
-      <div key={history.name} onClick={()=>{setLocation(history.name)}}>
+      <div onClick={()=>{setLocation(history.name)}}>
       {history.name}
       </div>
     </div>

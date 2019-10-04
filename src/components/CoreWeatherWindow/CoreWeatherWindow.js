@@ -2,6 +2,7 @@ import React from "react";
 import "./CoreWeatherWindow.css";
 import WeatherInfo from "../WeatherInfo/WeatherInfo";
 import LocationInputForm from "../LocationInputForm/LocationInputForm";
+import RefreshInfo from "../RefreshInfo/RefreshInfo";
 
 const CoreWeatherWindow = ({weatherData, setLocation, setMetricTemp, metricTemp, refreshSecs}) => {
   
@@ -10,10 +11,7 @@ const CoreWeatherWindow = ({weatherData, setLocation, setMetricTemp, metricTemp,
       <div className="weatherInfo">
         <LocationInputForm setLocation={setLocation}  setMetricTemp={setMetricTemp} metricTemp={metricTemp} ></LocationInputForm> 
         <WeatherInfo weatherData={weatherData} metricTemp={metricTemp}></WeatherInfo>
-      <div className="refreshInfo">
-        <p>{`Refreshing in ${60 - refreshSecs} seconds`}</p>
-        <p>{`Refreshed ${refreshSecs} secs ago`}</p>
-      </div>
+        <RefreshInfo refreshSecs={refreshSecs} ></RefreshInfo>
       </div>
     </div>
   );

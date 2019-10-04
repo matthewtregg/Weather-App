@@ -8,9 +8,9 @@ const [locationHistory, setLocationHistory] = useState([])
 const [location, setLocation] = useState('London');
 
   return ( 
-      <WeatherAppContext.Provider value={{setLocationHistory, setLocation, location, locationHistory}}>
-        <WeatherApp locationHistory={locationHistory} setLocation={setLocation}></WeatherApp> 
-      </WeatherAppContext.Provider>
+    <WeatherAppContext.Provider value={{setLocationHistory, setLocation, location, locationHistory}}>
+      <WeatherApp locationHistory={locationHistory} setLocation={setLocation}></WeatherApp> 
+    </WeatherAppContext.Provider>
   );
 }
 

@@ -15,7 +15,7 @@ const LocationInputForm = ({setLocation, setMetricTemp, metricTemp}) => {
   }
   
   const tempToggle = metricTemp ?
-  <button onClick={() => {setMetricTemp(false)}}>  Kelvin </button >:
+  <button onClick={() => {setMetricTemp(false)}}> Kelvin </button >:
   <button onClick ={() =>{setMetricTemp(true)}}> Celsius </button>;  
 
   return ( 

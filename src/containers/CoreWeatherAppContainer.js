@@ -5,7 +5,7 @@ import CoreWeatherWindow from "../components/CoreWeatherWindow/CoreWeatherWindow
 
 const CoreWeatherAppContainer = () => {
 
-const { setLocationHistory, setLocation, location, locationHistory} = useContext(WeatherAppContext);
+const {setLocationHistory, setLocation, location, locationHistory} = useContext(WeatherAppContext);
 const [refresh, setRefresh] = useState(0); 
 const [secs, setSecs] = useState(0);
 const [metricTemp, setMetricTemp] = useState(true);
@@ -17,21 +17,17 @@ const [metricTemp, setMetricTemp] = useState(true);
     if (locationHistory.length < 5 && savedLocation.length === 0 ) {
       setLocationHistory (history => [...history,data]) 
     }
-
     // if saved location already exists
     else if (savedLocation.length > 0) {
       const otherLocations = locationHistory.filter(history => history.name !== data.name)
       setLocationHistory ([...otherLocations,data]) 
-    }
-    
+    } 
     // is saved location length is full (ie. full)
     else if (locationHistory.length === 5) {
       const nonFirstLocations = locationHistory.filter((_,index) => index !== 0);
       setLocationHistory([...nonFirstLocations, data]);
-    }
-      
+    }      
   }
-
   
   const getWeatherDataAtLocation = (locationHistory) => {
     if (locationHistory.length > 0) {
@@ -44,7 +40,7 @@ const [metricTemp, setMetricTemp] = useState(true);
     } 
   }
 
-
+  // use Effect for one minute refresh
   useEffect(() => {
     const seconds = setTimeout(function () {
       setSecs(secs => secs + 1);
@@ -54,7 +50,6 @@ const [metricTemp, setMetricTemp] = useState(true);
       setRefresh(refresh => refresh + 1);
     }
   }, [secs])
-
 
   // use Effect for API request to get weather data 
   // triggered on change in location or refresh (ie when secs reaches 60)
@@ -81,8 +76,13 @@ const [metricTemp, setMetricTemp] = useState(true);
   // get Weather Data for a location 
   const weatherData = getWeatherDataAtLocation(locationHistory)
 
+  // get minutes until refresh
+  const refreshMinutes = Math.floor(secs);
+  const refreshSecs = refreshMinutes > 0? (secs - (refreshMinutes *60)) : secs
+
+
   return ( 
-    <CoreWeatherWindow weatherData={weatherData} setLocation={setLocation} setMetricTemp={setMetricTemp} metricTemp={metricTemp} refreshSecs={secs}></CoreWeatherWindow>
+    <CoreWeatherWindow weatherData={weatherData} setLocation={setLocation} setMetricTemp={setMetricTemp} metricTemp={metricTemp} refreshSecs={refreshSecs} refreshMinutes={refreshMinutes}></CoreWeatherWindow>
   );
 }
 
