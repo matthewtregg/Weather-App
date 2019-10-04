@@ -11,7 +11,7 @@ const WeatherInfo = ({weatherData, metricTemp}) => {
     </div>: <div> location not loaded</div>;
   
   return ( 
-   weatherDetails
+  weatherDetails
   );
 }
 
