@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import "./LocationInputForm.css";
 
-const LocationInputForm = ({setLocation, setMetricTemp}) => {
+const LocationInputForm = ({setLocation, setMetricTemp, metricTemp}) => {
 
   const [value, setValue]=useState('');
   const handleValue = (event) => {

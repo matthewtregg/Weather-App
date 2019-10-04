@@ -66,7 +66,7 @@ const [metricTemp, setMetricTemp] = useState(true);
 
 
   return ( // TODO: Replace this with your application code
-    <CoreWeatherWindow weatherData={weatherData} setLocation={setLocation}  refreshSecs={secs}></CoreWeatherWindow>
+    <CoreWeatherWindow weatherData={weatherData} setLocation={setLocation} setMetricTemp={setMetricTemp} metricTemp={metricTemp} refreshSecs={secs}></CoreWeatherWindow>
   );
 }
 
