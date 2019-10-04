@@ -8,8 +8,7 @@ const CoreWeatherAppContainer = () => {
 const { setLocationHistory, setLocation, location, locationHistory} = useContext(WeatherAppContext);
 const [refresh, setRefresh] = useState(0); 
 const [secs, setSecs] = useState(0);
-
-
+const [metricTemp, setMetricTemp] = useState(true);
 
   const saveLocationHistory = (data) => {
     // check if weather information already exists
@@ -27,7 +26,6 @@ const [secs, setSecs] = useState(0);
   }
 
   useEffect(() => {
-    console.log(secs);
     const seconds = setTimeout(function () {
       setSecs(secs => secs + 1);
     }, 1000);
@@ -48,7 +46,7 @@ const [secs, setSecs] = useState(0);
         setSecs(0);
       });
 
-  }, [refresh, location])
+  }, [refresh, location, metricTemp])
 
   // get Weather Data for a location 
   let weatherData = null;
