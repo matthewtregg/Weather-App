@@ -52,13 +52,8 @@ const [secs, setSecs] = useState(0);
 
 
 
-
   return ( // TODO: Replace this with your application code
-    <div className="App">
-      {/* <header className="App-header">
-        <ExampleComp />
-      </header> */}
-    </div>
+    <CoreWeatherWindow weatherData={weatherData} setLocation={setLocation}  refreshSecs={secs}></CoreWeatherWindow>
   );
 }
 
