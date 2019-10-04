@@ -36,12 +36,20 @@ const [metricTemp, setMetricTemp] = useState(true);
   }, [secs])
 
 
+  // use Effect for API request to get weather data 
+  // triggered on change in location or refresh (ie when secs reaches 60)
   useEffect(() => {
 
     // check location history for metricTemp
-    fetch(`https://api.openweathermap.org/data/2.5/weather?q=${location},uk&units=metric&appid=46f3fbf526892ce35ec9013d2368d07c`) 
-      .then((res) => res.json())
+    const fetchUrl = metricTemp ?
+      `https://api.openweathermap.org/data/2.5/weather?q=${location},uk&units=metric&appid=46f3fbf526892ce35ec9013d2368d07c` :
+      `https://api.openweathermap.org/data/2.5/weather?q=${location},uk&appid=46f3fbf526892ce35ec9013d2368d07c`;
+
+    fetch(fetchUrl)
+      .then((res) => res.json()) 
       .then((data) => {
+        data.CelsiusTemp = metricTemp ? data.main.temp : null;
+        data.KelvinTemp = metricTemp ? null : data.main.temp;
         saveLocationHistory(data);
         setSecs(0);
       });
