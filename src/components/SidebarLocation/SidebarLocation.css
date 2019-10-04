@@ -1,0 +1,7 @@
+.SidebarLocation {
+  text-align: left;
+}
+
+.SidebarLocation:hover {
+  background-color: #664575;
+}

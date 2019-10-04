@@ -3,11 +3,6 @@ import ReactDOM from "react-dom";
 import WeatherInfo from "./WeatherInfo";
 import {testWeatherData} from "./WeatherInfo.test.utils";
 
-
-
-
-
-
 describe("Weather Info test", () => {
 
   it("expect an empty weather Info box to show loading text", () => {

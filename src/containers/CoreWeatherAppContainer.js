@@ -23,8 +23,27 @@ const [metricTemp, setMetricTemp] = useState(true);
       const otherLocations = locationHistory.filter(history => history.name !== data.name)
       setLocationHistory ([...otherLocations,data]) 
     }
+    
+    // is saved location length is full (ie. full)
+    else if (locationHistory.length === 5) {
+      const nonFirstLocations = locationHistory.filter((_,index) => index !== 0);
+      setLocationHistory([...nonFirstLocations, data]);
+    }
       
   }
+
+  
+  const getWeatherDataAtLocation = (locationHistory) => {
+    if (locationHistory.length > 0) {
+      const currentLocationData = locationHistory.filter(history => history.name === location)
+      if (currentLocationData.length > 0) return currentLocationData[0];
+      else return null;
+    } 
+    else {
+      return null;
+    } 
+  }
+
 
   useEffect(() => {
     const seconds = setTimeout(function () {
@@ -48,6 +67,7 @@ const [metricTemp, setMetricTemp] = useState(true);
 
     fetch(fetchUrl)
       .then((res) => {
+        // status is not OK throw error location not found 
         if (res.status !== 200) throw new Error('location not found');
         return res.json();
       })
@@ -59,13 +79,7 @@ const [metricTemp, setMetricTemp] = useState(true);
   }, [refresh, location, metricTemp])
 
   // get Weather Data for a location 
-  let weatherData = null;
-  if (locationHistory.length > 0) {
-    const currentLocationData = locationHistory.filter(history => history.name === location)
-    if (currentLocationData.length > 0) weatherData = currentLocationData[0];
-    else weatherData = null;
-  }
-
+  const weatherData = getWeatherDataAtLocation(locationHistory)
 
   return ( 
     <CoreWeatherWindow weatherData={weatherData} setLocation={setLocation} setMetricTemp={setMetricTemp} metricTemp={metricTemp} refreshSecs={secs}></CoreWeatherWindow>

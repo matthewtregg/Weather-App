@@ -10,6 +10,4 @@ describe("Weather Info test", () => {
     expect(wrapper.textContent).toMatch('No History'); 
   });
   
-
-  
 });
