@@ -5,23 +5,22 @@ import App from "./App";
 
 
 it("renders without crashing", () => {
-  const wrapper = document.createElement("div");
+  const div = document.createElement("div");
   ReactDOM.render(<App />, div);
   ReactDOM.unmountComponentAtNode(div);
 });
 
-// describe("integration tests", () => {
+describe("integration tests", () => {
 
-//   it("expect submit to throw an error with invalid location input", () => {
-//     const wrapper = document.createElement("div");
-//     ReactDOM.render(<App />, wrapper);
-//     const form = wrapper.querySelector('form');
-//     const {locationInput} =form.elements;
-//     const submit = new window.Event('submit');
-//     form.dispatchEvent(submit);
-//   });
+  it("expect submit to throw an error with invalid location input", () => {
+    const wrapper = document.createElement("div");
+    ReactDOM.render(<App />, wrapper);
+    const form = wrapper.querySelector('form');
+    const submit = new window.Event('submit');
+    // error throwing but cannot get relevant expect syntax
+    expect(() => {form.dispatchEvent(submit)}).toThrow();
+  });
 
-//   //TODO:  Add your site or application tests here
 
-// })
+})
 

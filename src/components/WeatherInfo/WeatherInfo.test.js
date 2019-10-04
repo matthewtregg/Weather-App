@@ -1,7 +1,12 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import WeatherInfo from "./WeatherInfo";
-import testWeatherData from "./WeatherInfo.test.utils";
+import {testWeatherData} from "./WeatherInfo.test.utils";
+
+
+
+
+
 
 describe("Weather Info test", () => {
 
