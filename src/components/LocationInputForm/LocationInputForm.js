@@ -25,7 +25,7 @@ const LocationInputForm = ({setLocation, setMetricTemp, metricTemp}) => {
    <form onSubmit={handleSubmit}>
     <label>
       Enter Your Location:
-      <input type="text" value={value} onChange={handleValue} />
+      <input name="locationInput" type="text" value={value} onChange={handleValue} />
     </label>
      {tempToggle}
   </form>
