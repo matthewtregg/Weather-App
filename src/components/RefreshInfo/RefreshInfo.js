@@ -1,12 +1,12 @@
 import React from "react";
 import "./RefreshInfo.css";
 
-const RefreshInfo = ({refreshSecs}) => {
+const RefreshInfo = ({refreshSecs, refreshMinutes}) => {
   
   return ( // TODO: Replace this with your application code
     <div className="refreshInfo">
-    <p>{`Refreshing in ${60 - refreshSecs} seconds`}</p>
-    <p>{`Refreshed ${refreshSecs} secs ago`}</p>
+    <p>{`Refreshing in ${refreshMinutes}m ${60 - refreshSecs}s`}</p>
+    <p>{`Refreshed ${refreshSecs}s ago`}</p>
   </div>
   );
 }

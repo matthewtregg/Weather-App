@@ -3,15 +3,17 @@ import "./CoreWeatherWindow.css";
 import WeatherInfo from "../WeatherInfo/WeatherInfo";
 import LocationInputForm from "../LocationInputForm/LocationInputForm";
 import RefreshInfo from "../RefreshInfo/RefreshInfo";
+import TemperatureToggle from "../TemperatureToggle/TemperatureToggle";
 
-const CoreWeatherWindow = ({weatherData, setLocation, setMetricTemp, metricTemp, refreshSecs}) => {
+const CoreWeatherWindow = ({weatherData, setLocation, setMetricTemp, metricTemp, refreshSecs, refreshMinutes}) => {
   
   return ( 
     <div className="CoreApp">
       <div className="weatherInfo">
-        <LocationInputForm setLocation={setLocation}  setMetricTemp={setMetricTemp} metricTemp={metricTemp} ></LocationInputForm> 
+        <TemperatureToggle  setMetricTemp={setMetricTemp} metricTemp={metricTemp}></TemperatureToggle>
+        <LocationInputForm setLocation={setLocation} ></LocationInputForm> 
         <WeatherInfo weatherData={weatherData} metricTemp={metricTemp}></WeatherInfo>
-        <RefreshInfo refreshSecs={refreshSecs} ></RefreshInfo>
+        <RefreshInfo refreshSecs={refreshSecs} refreshMinutes={refreshMinutes}></RefreshInfo>
       </div>
     </div>
   );

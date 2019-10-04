@@ -1,0 +1,13 @@
+.locationForm{
+  display: flex;
+  margin-bottom: 5%;
+  flex-direction: row;
+}
+
+.locationForm input[type=text]{
+  width:50%;
+}
+.label {
+  display: inline-block;
+}
+

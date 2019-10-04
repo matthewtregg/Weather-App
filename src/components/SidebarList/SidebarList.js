@@ -8,7 +8,7 @@ const SidebarList = ({locationHistory}) => {
   }): <div>No History</div>;
   
   return ( 
-    <div className="Sidebar">
+    <div className="SidebarList">
       <p> Select a weather history </p>
        {locationHistories} 
     </div>

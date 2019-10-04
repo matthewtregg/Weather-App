@@ -9,7 +9,7 @@ const WeatherApp = ({locationHistory, setLocation}) => {
     <div className="MainWindow">
       <Sidebar locationHistory={locationHistory} setLocation={setLocation}></Sidebar> 
     <div className="WeatherAppBackground">
-      <h1> Your Weather </h1>
+      <h1> Your weather </h1>
       <div className="MainWeatherAppWindow">
         <CoreWeatherAppContainer></CoreWeatherAppContainer>
       </div>

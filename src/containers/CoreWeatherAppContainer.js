@@ -29,7 +29,9 @@ const [metricTemp, setMetricTemp] = useState(true);
     }      
   }
   
+  // get Weather information at an existing location in location historys
   const getWeatherDataAtLocation = (locationHistory) => {
+    // if there 
     if (locationHistory.length > 0) {
       const currentLocationData = locationHistory.filter(history => history.name === location)
       if (currentLocationData.length > 0) return currentLocationData[0];
@@ -76,8 +78,8 @@ const [metricTemp, setMetricTemp] = useState(true);
   // get Weather Data for a location 
   const weatherData = getWeatherDataAtLocation(locationHistory)
 
-  // get minutes until refresh
-  const refreshMinutes = Math.floor(secs);
+  // get minutes and secs until refresh
+  const refreshMinutes = Math.floor(secs/60);
   const refreshSecs = refreshMinutes > 0? (secs - (refreshMinutes *60)) : secs
 
 
