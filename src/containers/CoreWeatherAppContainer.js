@@ -2,7 +2,6 @@ import React, {useEffect, useState, useContext} from "react";
 import {WeatherAppContext} from "./WeatherAppContainer";
 import CoreWeatherWindow from "../components/CoreWeatherWindow/CoreWeatherWindow";
 
-
 const CoreWeatherAppContainer = () => {
 // get current location and location history
 const {setLocationHistory, setLocation, location, locationHistory} = useContext(WeatherAppContext);
