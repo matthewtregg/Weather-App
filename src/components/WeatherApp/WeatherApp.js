@@ -4,7 +4,7 @@ import Sidebar from "../SidebarList/SidebarList";
 import "./WeatherApp.css";
 
 const WeatherApp = ({locationHistory, setLocation}) => {
-
+  // Main weather placeholder with the weather app Title and sidebar
   return ( 
     <div className="MainWindow">
       <Sidebar locationHistory={locationHistory} setLocation={setLocation}></Sidebar> 

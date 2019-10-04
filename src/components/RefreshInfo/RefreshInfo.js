@@ -2,7 +2,7 @@ import React from "react";
 import "./RefreshInfo.css";
 
 const RefreshInfo = ({refreshSecs, refreshMinutes}) => {
-  
+  // time from last refresh
   return ( 
     <div className="refreshInfo">
     <p>{`Refreshing in ${0}m ${60 - refreshSecs}s`}</p>

@@ -1,7 +1,7 @@
 import React from "react";
 import "./WeatherInfo.css";
 const WeatherInfo = ({weatherData, metricTemp}) => {
- 
+ // presentation of weather data which shows celsius when metric temp is true and Kelvin otherwise
   const weatherDetails = weatherData ?
    <div className="weatherDetails">
       <p className="location">{weatherData.name.toUpperCase()}</p>

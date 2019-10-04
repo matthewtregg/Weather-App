@@ -4,10 +4,13 @@ import CoreWeatherWindow from "../components/CoreWeatherWindow/CoreWeatherWindow
 
 
 const CoreWeatherAppContainer = () => {
-
+// get current location and location history
 const {setLocationHistory, setLocation, location, locationHistory} = useContext(WeatherAppContext);
+// set number of refreshes made
 const [refresh, setRefresh] = useState(0); 
+// set secs from refresh
 const [secs, setSecs] = useState(0);
+// set temperature to be Celsius (ie metric ) or kelvin
 const [metricTemp, setMetricTemp] = useState(true);
 
   const saveLocationHistory = (data) => {
@@ -22,7 +25,7 @@ const [metricTemp, setMetricTemp] = useState(true);
       const otherLocations = locationHistory.filter(history => history.name !== data.name)
       setLocationHistory ([...otherLocations,data]) 
     } 
-    // is saved location length is full (ie. full)
+    // is saved location length is full (ie. more than 5 locations)
     else if (locationHistory.length === 5) {
       const nonFirstLocations = locationHistory.filter((_,index) => index !== 0);
       setLocationHistory([...nonFirstLocations, data]);
