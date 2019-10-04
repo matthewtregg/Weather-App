@@ -1,5 +1,6 @@
 import React, {useEffect, useState, useContext} from "react";
 import {WeatherAppContext} from "./WeatherAppContainer";
+import CoreWeatherWindow from "../components/CoreWeatherWindow/CoreWeatherWindow";
 
 
 const CoreWeatherAppContainer = () => {
@@ -49,7 +50,13 @@ const [secs, setSecs] = useState(0);
 
   }, [refresh, location])
 
-
+  // get Weather Data for a location 
+  let weatherData = null;
+  if (locationHistory.length > 0) {
+    const currentLocationData = locationHistory.filter(history => history.name === location)
+    if (currentLocationData.length > 0) weatherData = currentLocationData[0];
+    else weatherData = null;
+  }
 
 
   return ( // TODO: Replace this with your application code
