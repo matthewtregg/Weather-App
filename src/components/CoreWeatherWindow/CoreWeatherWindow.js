@@ -7,14 +7,14 @@ const CoreWeatherWindow = ({weatherData, setLocation, setMetricTemp, metricTemp,
   
   return ( 
     <div className="CoreApp">
-        <div className="weatherInfo">
-          <LocationInputForm setLocation={setLocation} setMetricTemp={setMetricTemp} metricTemp={metricTemp} ></LocationInputForm> 
-          <WeatherInfo weatherData={weatherData} metricTemp={metricTemp} ></WeatherInfo>
-        <div className="refreshInfo">
-          <p>{`Refreshing in ${60 - refreshSecs} seconds`}</p>
-          <p>{`Refreshed ${refreshSecs} secs ago`}</p>
-        </div>
-        </div>
+      <div className="weatherInfo">
+        <LocationInputForm setLocation={setLocation}  setMetricTemp={setMetricTemp} metricTemp={metricTemp} ></LocationInputForm> 
+        <WeatherInfo weatherData={weatherData} metricTemp={metricTemp}></WeatherInfo>
+      <div className="refreshInfo">
+        <p>{`Refreshing in ${60 - refreshSecs} seconds`}</p>
+        <p>{`Refreshed ${refreshSecs} secs ago`}</p>
+      </div>
+      </div>
     </div>
   );
 }

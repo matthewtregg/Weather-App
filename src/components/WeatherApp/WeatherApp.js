@@ -2,7 +2,6 @@ import React from "react";
 import CoreWeatherAppContainer from "../../containers/CoreWeatherAppContainer";
 import Sidebar from "../SidebarList/SidebarList";
 import "./WeatherApp.css";
-// flexbox left to right
 
 const WeatherApp = ({locationHistory, setLocation}) => {
 
