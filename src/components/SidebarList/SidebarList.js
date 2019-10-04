@@ -12,7 +12,7 @@ const SidebarList = ({locationHistory}) => {
   return ( 
     <div className="SidebarList">
       <p> Select a weather history </p>
-       {locationHistories} 
+      {locationHistories} 
     </div>
   );
 }
