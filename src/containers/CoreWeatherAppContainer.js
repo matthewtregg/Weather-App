@@ -47,7 +47,10 @@ const [metricTemp, setMetricTemp] = useState(true);
       `https://api.openweathermap.org/data/2.5/weather?q=${location},uk&appid=46f3fbf526892ce35ec9013d2368d07c`;
 
     fetch(fetchUrl)
-      .then((res) => res.json()) 
+      .then((res) => {
+        if (res.status !== 200) throw new Error('location not found');
+        return res.json();
+      })
       .then((data) => {
         data.CelsiusTemp = metricTemp ? data.main.temp : null;
         data.KelvinTemp = metricTemp ? null : data.main.temp;
