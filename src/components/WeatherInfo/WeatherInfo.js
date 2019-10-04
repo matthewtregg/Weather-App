@@ -1,18 +1,26 @@
 import React from "react";
 import "./WeatherInfo.css";
-const WeatherInfo = ({weatherData}) => {
+const WeatherInfo = ({weatherData, metricTemp}) => {
   let weatherDetails = "";
-  if (weatherData ) {
+  if (weatherData && metricTemp) {
     weatherDetails = <div className="weatherDetails">
       <p>{weatherData.name}</p>
-      <p>{`${weatherData.main.temp} ${String.fromCharCode(176)} C`}</p>
+      <p>{`${weatherData.CelsiusTemp} ${String.fromCharCode(176)} C`}</p>
       <p>{`${weatherData.main.pressure} hpa`}</p>
       <p>{`${weatherData.main.humidity} %`}</p>
     </div>;
-  } 
-  else {
+  } else if (weatherData && !metricTemp) {
+    weatherDetails = <div className="weatherDetails">
+      <p>{weatherData.name}</p>
+      <p>{`${weatherData.KelvinTemp} K`}</p>
+      <p>{`${weatherData.main.pressure} hpa`}</p>
+      <p>{`${weatherData.main.humidity} %`}</p>
+    </div>;
+  } else {
     weatherDetails = null;
   }
+  
+  
   
   return ( 
     weatherDetails
