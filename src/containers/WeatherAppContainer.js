@@ -6,7 +6,7 @@ export const WeatherAppContainer = () => {
 // state for location history  
 const [locationHistory, setLocationHistory] = useState([])
 // state for currently set location (defaults to london as initial location)
-const [location, setLocation] = useState('London');
+const [location, setLocation] = useState('');
 
   return ( 
     <WeatherAppContext.Provider value={{setLocationHistory, setLocation, location, locationHistory}}>

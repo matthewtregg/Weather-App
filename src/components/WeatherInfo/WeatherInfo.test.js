@@ -8,7 +8,7 @@ describe("Weather Info test", () => {
   it("expect an empty weather Info box to show loading text", () => {
     const wrapper = document.createElement("div");
     ReactDOM.render(<WeatherInfo weatherData={null} metricTemp={true}/>, wrapper);
-    expect(wrapper.textContent).toMatch('loading'); 
+    expect(wrapper.textContent).toMatch('location not loaded'); 
   });
 
   it("expect weather infor to show kelvin when metric temp equals false", () => {

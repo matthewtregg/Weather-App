@@ -8,8 +8,6 @@ const TemperatureToggle= ({setMetricTemp, metricTemp}) => {
   <button onClick ={() =>{setMetricTemp(true)}}> Celsius </button>;  
 
   return ( 
-    // Input form for changing the location
-    // add in temperature toggle and finish styling
    <>
     <div className="tempToggle">
     <label>Temperature toggle: </label>

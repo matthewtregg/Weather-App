@@ -8,7 +8,7 @@ const WeatherInfo = ({weatherData, metricTemp}) => {
       <p className="temperature">{metricTemp? `${weatherData.main.temp} ${String.fromCharCode(176)} C`:`${weatherData.main.temp} K`}</p>
       <p>{`${weatherData.main.pressure} hpa`}</p>
       <p>{`${weatherData.main.humidity} %`}</p>
-    </div>: <div> loading</div>;
+    </div>: <div> location not loaded</div>;
   
   return ( 
    weatherDetails

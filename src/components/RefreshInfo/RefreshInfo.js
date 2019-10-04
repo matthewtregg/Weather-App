@@ -3,10 +3,10 @@ import "./RefreshInfo.css";
 
 const RefreshInfo = ({refreshSecs, refreshMinutes}) => {
   
-  return ( // TODO: Replace this with your application code
+  return ( 
     <div className="refreshInfo">
-    <p>{`Refreshing in ${refreshMinutes}m ${60 - refreshSecs}s`}</p>
-    <p>{`Refreshed ${refreshSecs}s ago`}</p>
+    <p>{`Refreshing in ${0}m ${60 - refreshSecs}s`}</p>
+    <p>{`Refreshed ${refreshMinutes}m ${refreshSecs}s ago`}</p>
   </div>
   );
 }
