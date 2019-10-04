@@ -52,8 +52,6 @@ const [metricTemp, setMetricTemp] = useState(true);
         return res.json();
       })
       .then((data) => {
-        // data.CelsiusTemp = metricTemp ? data.main.temp : null;
-        // data.KelvinTemp = metricTemp ? null : data.main.temp;
         saveLocationHistory(data);
         setSecs(0);
       });
